@@ -1,3 +1,94 @@
+# ClipLinks
+
+Simple Next.js URL shortener — create short links and redirect to originals.
+
+## Features
+
+- Shorten URLs via a Next.js route
+- Server-side storage using MongoDB (`lib/mongodb.js`)
+- API route to generate shortened links (`/api/generate/route.js`)
+- Simple UI in the `app/` directory
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- MongoDB (using the `mongodb` driver)
+- Tailwind CSS (for styling)
+
+## Getting Started
+
+Prerequisites:
+
+- Node.js (recommended v18+)
+- A running MongoDB instance (Atlas or local)
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Local development:
+
+```bash
+# set env var then run dev server
+setx MONGODB_URI "your-mongodb-connection-string"
+npm run dev
+```
+
+On PowerShell you can temporarily set the environment variable for the current session:
+
+```powershell
+$env:MONGODB_URI = "your-mongodb-connection-string"
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm run start
+```
+
+## Environment Variables
+
+- `MONGODB_URI` — MongoDB connection string used by `lib/mongodb.js`.
+
+Add other secrets as needed for deployment.
+
+## Project Structure (important files)
+
+- `app/` — Next.js App Router pages and components
+- `components/` — UI components (e.g., `Navbar.js`)
+- `lib/mongodb.js` — MongoDB connection helper
+- `app/api/generate/route.js` — API route that creates shortened links
+- `public/` — static assets
+
+## Scripts
+
+Available npm scripts (from `package.json`):
+
+- `npm run dev` — Starts Next.js dev server (uses Turbopack)
+- `npm run build` — Builds the production app
+- `npm run start` — Starts the production server
+- `npm run lint` — Runs ESLint
+
+## Deployment
+
+You can deploy to Vercel or any platform that supports Next.js. Ensure `MONGODB_URI` is set in the platform's environment settings.
+
+## Contributing
+
+Contributions are welcome — open an issue or PR. Keep changes focused and add brief descriptions for commits.
+
+## License
+
+This project has no license specified. Add a `LICENSE` file if you want to make the project public with a chosen license.
+
+---
+
+If you want, I can commit `README.md` for you and push it to `origin/main`.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
